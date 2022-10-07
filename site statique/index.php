@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-    <header>
-
-    </header>
+    <head>
+        <?php include("module/head.php") ?>
+    </head>
     <body>
         <?php include("module/header.php") ?>
 
