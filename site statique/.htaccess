@@ -1,0 +1,3 @@
+# redirect to index 
+ErrorDocument 403 /
+ErrorDocument 404 /
