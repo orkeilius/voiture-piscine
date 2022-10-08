@@ -1,0 +1,58 @@
+:root {
+    --accent-color: #0c7489;
+    --hover-color: #101D42;
+    --valide-color: #659157;
+    --danger-color: #FE4A49;
+    --grey-color: #DEE2FF;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+h1 {
+    margin-left: 0.5em;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--accent-color);
+}
+
+nav>a {
+    color: white;
+    padding: 1em;
+    transition: all 1s;
+}
+
+nav>a:hover {
+    background-color: var(--hover-color);
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em;
+}
+
+form {
+    text-align: center;
+}
+.entry{
+    border: solid black;
+border-width: 0 0 3px 0;
+    border-radius: 0;
+    background: var(--grey-color);
+    transition: all 1s;
+}
+.entry:valid{
+    border-color: var(--valide-color);
+}
