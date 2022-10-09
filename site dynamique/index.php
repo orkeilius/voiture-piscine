@@ -7,11 +7,23 @@
 
 <body>
     <?php include("module/header.php"); ?>
+    <section id="sectionLogin">
     <?php # placeholder for login
-    if (False) {  ?>
-        <h1>dernier message</h1>
+    if (True) {  ?>
+        <h2>dernier article :</h2>
+        <?php #future for each statement?>
+            <article class="itemWarper">
+                <h2>lorem ipsum</h2>
+                <p>de richard paté</p>
+                <p>blabla voiuture blabla eau blablablablablablbalbalbalbalbalblablalbllblablablablablblablblablblablabla dfg sdfgsdfg </p>
+                
+                <div>
+                    <a>lire la suite -></a>
+                    <a>like</a>
+                </div>
+            </article>
+        <?php #future for each statement?>
     <?php } else { ?>
-        <section id="sectionLogin">
             <div class="itemWarper">
                 <h2>log in</h2>
                 <form action="/login.php" method="post">
@@ -29,8 +41,8 @@
                 <rect width="200%" height="100%" fill="url(#bg)" />
             </svg>
 
+            <?php }; ?>
         </section>
-    <?php }; ?>
     <?php include("module/footer.php") ?>
 </body>
 
