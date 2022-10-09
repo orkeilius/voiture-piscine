@@ -9,6 +9,9 @@
 
 body {
     margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -18,6 +21,9 @@ a {
 
 h1 {
     margin-left: 0.5em;
+}
+h2 {
+    margin: 0.25em 0;
 }
 
 nav {
@@ -36,23 +42,57 @@ nav>a:hover {
     background-color: var(--hover-color);
 }
 
+.itemWarper {
+    background: white;
+    border-radius: 2em;
+    padding: 2em;
+    box-shadow: 0px 0px 30px 14px rgba(0, 0, 0, 0.17);
+}
+
+
 section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1em;
+    justify-content: center;
+    flex-grow: 1; 
 }
-
+#sectionLogin{
+    position: relative;
+    overflow: hidden;
+}
 form {
     text-align: center;
 }
-.entry{
+
+.entry {
     border: solid black;
-border-width: 0 0 3px 0;
+    border-width: 0 0 3px 0;
     border-radius: 0;
     background: var(--grey-color);
     transition: all 1s;
 }
-.entry:valid{
+
+.entry:valid {
     border-color: var(--valide-color);
+
+}
+
+#svgBackground {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: -1;
+    height: 100%;
+    animation-name: waves;
+    animation-duration: 60s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes waves {
+    0% {transform: translate(-75%,0);}
+    50% {transform: translate(-50%,10%);}
+    100% {transform: translate(-25%,0);}
 }
