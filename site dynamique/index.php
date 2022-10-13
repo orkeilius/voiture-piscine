@@ -8,25 +8,31 @@
 <body>
     <?php include("module/header.php"); ?>
     <section id="sectionLogin">
-    <?php # placeholder for login
-    if (True) {  ?>
-        <h2>dernier article :</h2>
-        <?php #future for each statement?>
+        <?php # placeholder for login
+        if (isset($userId)) {  ?>
+            <h2>dernier article :</h2>
+            <?php #future for each statement
+            ?>
             <article class="itemWarper">
-                <h2>lorem ipsum</h2>
-                <p>de richard paté</p>
-                <p>blabla voiuture blabla eau blablablablablablbalbalbalbalbalblablalbllblablablablablblablblablblablabla dfg sdfgsdfg </p>
-                
+                <div class="articleTitle">
+                    <h2>lorem ipsum </h2>
+                    <p>de richard paté</p>
+                </div>
+
+                <p>blabla voiuture blabla eau blablablablab l a b lbalbalba lbal balblabl albllblab labl ablabl blabl blab lblablab la dfg sdfgs dfg </p>
+
                 <div>
-                    <a>lire la suite -></a>
-                    <a>like</a>
+                    <a class="articleLink">lire la suite</a>
+                    <a class="articleLike"><object data="media/heart.svg" class="icon like" type="image/svg+xml"></object>
+                        like</a>
                 </div>
             </article>
-        <?php #future for each statement?>
-    <?php } else { ?>
+            <?php #future for each statement
+            ?>
+        <?php } else { ?>
             <div class="itemWarper">
                 <h2>log in</h2>
-                <form action="/login.php" method="post">
+                <form action="login.php" method="post">
                     <input type="text" class="entry" id="username" name="username" placeholder="username" required><br>
                     <input type="password" class="entry" id="password" name="password" placeholder="password" required><br>
                     <input type="submit" value="se connecter">
@@ -41,8 +47,8 @@
                 <rect width="200%" height="100%" fill="url(#bg)" />
             </svg>
 
-            <?php }; ?>
-        </section>
+        <?php }; ?>
+    </section>
     <?php include("module/footer.php") ?>
 </body>
 
