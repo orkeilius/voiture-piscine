@@ -13,6 +13,6 @@ function getUserAccess(){
     $query->bindParam(1,$_SESSION["user"]);
     $query->execute();
     $result =  $query->fetch();
-    return $result["userAccess"]
+    return $result["userAccess"];
 }
 
