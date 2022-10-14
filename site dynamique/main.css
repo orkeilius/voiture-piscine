@@ -3,6 +3,7 @@
     --hover-color: #101D42;
     --valide-color: #659157;
     --danger-color: #FE4A49;
+    --danger-color-background : #FE4A4933; 
     --grey-color: #DEE2FF;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -50,7 +51,9 @@ nav>a:hover {
 padding: 2em ;
     box-shadow: 0px 0px 30px 14px rgba(0, 0, 0, 0.17);
 }
-
+.itemWarper > h2{
+    text-align: center;
+}
 
 section {
     display: flex;
@@ -133,4 +136,15 @@ form {
     aspect-ratio: 1/1;
     vertical-align: sub;
     transition: all 1s;
+}
+.errorItem{
+    margin-top: 1em;
+    border: 2px solid var(--danger-color);
+    border-radius: 1em;
+    padding: 0.25em 0.5em;
+    background: var(--danger-color-background);
+}
+.errorItem > p {
+    margin: 0;
+
 }
