@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("lib/dbTools.php");
+include("module/dbTools.php");
 $db = connexion();
 $query = $db->prepare("SELECT * FROM `user` WHERE `userName` = ?;");
 $query->bindParam(1,htmlspecialchars($_POST["username"]));
