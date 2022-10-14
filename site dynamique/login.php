@@ -12,6 +12,6 @@ if (password_verify(htmlspecialchars($_POST["password"]), $result["userPassword"
     header("Location: /");
 }
 else{
-    header("Location: /?error=login");
+    header("Location: /?loginError=1");
 }
 ?>

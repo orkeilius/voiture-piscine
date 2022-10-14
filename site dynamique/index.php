@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 
@@ -38,6 +38,12 @@
                     <input type="password" class="entry" id="password" name="password" placeholder="password" required><br>
                     <input type="submit" value="se connecter">
                 </form>
+                <?php if (isset($_GET["loginError"])) { ?>
+                    <div class="errorItem">
+                        <p><object data="media/error.svg" class="icon like" type="image/svg+xml"></object>
+                        nom / mot de passe invalide</p>
+                    </div>
+                <?php } ?>
             </div>
             <svg id="svgBackground" xmlns="http://www.w3.org/2000/svg" width="200%" height="100%">
                 <defs>
