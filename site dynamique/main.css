@@ -44,7 +44,7 @@ h2 {
 
 nav {
     display: flex;
-    justify-content: space-between;
+    
     background-color: var(--accent-color);
 }
 
