@@ -10,7 +10,7 @@
     <?php include("module/header.php"); ?>
     <section id="sectionLogin">
         <?php # placeholder for login
-        if (isset($userId)) {  ?>
+        if (isset($_SESSION["user"])) { ?>
             <h2>dernier article :</h2>
             <?php #future for each statement
             ?>
