@@ -1,7 +1,7 @@
 <header>
     <h1>Vp enterprise</h1>
     <nav>
-        <a class="navItem" href="accueil">Accueil</a>
+        <a class="navItem" href="/">Accueil</a>
         <?php if(isset($_SESSION["user"])){ ?>
             <div class="dropdown">
                 <button class="navItem" href="profile">Profil</button>
