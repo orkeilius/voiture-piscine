@@ -1,11 +1,11 @@
-<?php include ('dbTools.php'); ?>
+<?php ?>
 <header>
     <h1>Vp enterprise</h1>
     <nav>
         <a class="navItem" href="/">Accueil</a>
         <?php if (isset($_SESSION["user"])) {
             if (getUserAccess() <= 2) { ?>
-                <a class="navItem" href="addArticle"> + ajouter un article</a>
+                <a class="navItem" href="addArticle.php"> + ajouter un article</a>
             <?php } ?>
             <div style="flex-basis:1;flex-grow:100"></div>
             <div class="dropdown">
@@ -14,7 +14,6 @@
                     <a class="dropdownItem" href="option.php">Option</a>
                     <a class="dropdownItem" href="logout.php">Logout</a>
                 </div>
-
             </div>
         <?php } ?>
     </nav>

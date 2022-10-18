@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start(); include('module/dbTools.php');  ?>
 <!DOCTYPE html>
 <html>
 
@@ -33,7 +33,7 @@
         <?php } else { ?>
             <div class="itemWarper">
                 <h2>log in</h2>
-                <form action="login.php" method="post">
+                <form class="formCenter" action="login.php" method="post">
                     <input type="text" class="entry" id="username" name="username" placeholder="username" required><br>
                     <input type="password" class="entry" id="password" name="password" placeholder="password" required><br>
                     <input type="submit" value="se connecter">

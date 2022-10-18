@@ -1,14 +1,14 @@
 <?php
-function connexion(){
-    try{
-        $db = new PDO('mysql:dbname=vp-enterprise;host=127.0.0.1' ,"root" , "");
-        return $db;
-    } catch(PDOException $e){
-        die ("DB Error".$e);
-    }
+try{
+    $db = new PDO('mysql:dbname=vp-enterprise;host=127.0.0.1' ,"root" , "");
+} catch(PDOException $e){
+    die ("DB Error".$e);
 }
 function getUserAccess(){
-    $db = connexion();
+    if (! isset($_SESSION["user"])){
+        return 99;
+    }
+    global $db;
     $query = $db -> prepare("SELECT `userAccess` FROM `user` WHERE `userName` =  ?");
     $query->bindParam(1,$_SESSION["user"]);
     $query->execute();
