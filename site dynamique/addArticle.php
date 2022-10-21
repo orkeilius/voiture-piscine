@@ -14,16 +14,14 @@
         include("module/header.php"); ?>
         <section>
             <h2> crée un article</h2>
-            <div class="itemWarper">
                 <form action="action.php" method="post">
                     <input type='hidden' name='action' value='addArticle' />
                     <label for="title" >Titre:</label><br/>
-                    <input type="text" name="title" placeholder="Titre" required><br/>
+                    <input type="text" name="title" placeholder="Titre" pattern="^.{0,255}" required><br/>
                     <label for="content" >article:</label><br/>
-                    <textarea name="content" placeholder="article" required></textarea>
+                    <textarea name="content" placeholder="article" required></textarea><br/><br/>
                     <input type="submit">
                 </form>
-            </div>
         </section>
 
     <?php include("module/footer.php");
