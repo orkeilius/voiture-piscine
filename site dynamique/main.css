@@ -131,7 +131,7 @@ section {
 }
 textarea{
     width: 90vw;
-    height: 50vh;
+    height: 25ch;
 }
 
 #svgBackground {
@@ -159,7 +159,9 @@ textarea{
         transform: translate(-25%, -10%);
     }
 }
-
+article{
+    width: 90ch;
+}
 .articleTitle {
     display: flex;
     justify-content: space-between;
