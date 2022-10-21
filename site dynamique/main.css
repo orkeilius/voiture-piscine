@@ -56,7 +56,7 @@ h2 {
 
 nav {
     display: flex;
-    justify-content: space-between;
+    
     background-color: var(--accent-color);
 }
 
@@ -125,7 +125,7 @@ section {
     overflow: hidden;
 }
 
-form {
+.formCenter {
     text-align: center;
 }
 
@@ -140,6 +140,10 @@ form {
 .entry:valid {
     border-color: var(--valide-color);
 
+}
+textarea{
+    width: 90vw;
+    height: 25ch;
 }
 
 #svgBackground {
@@ -167,7 +171,9 @@ form {
         transform: translate(-25%, -10%);
     }
 }
-
+article{
+    width: 90ch;
+}
 .articleTitle {
     display: flex;
     justify-content: space-between;
