@@ -18,8 +18,6 @@ include('module/dbTools.php');  ?>
             $query->execute();
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $post) {
-                # code...
-
             ?>
                 <article class="itemWarper">
                     <div class="articleTitle">
