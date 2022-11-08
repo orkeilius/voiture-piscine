@@ -37,7 +37,7 @@ include('module/dbTools.php');  ?>
                     ?></p>
 
                     <div>
-                        <a class="articleLink">lire la suite</a>
+                        <a class="articleLink" href=<?php echo "/post.php?id=" . $post["postId"]  ?> >lire la suite</a>
                         <!-- <a class="articleLike"><object data="media/heart.svg" class="icon like" type="image/svg+xml"></object>
                             like</a> -->
                     </div>
