@@ -18,8 +18,6 @@ include('module/dbTools.php');  ?>
             $query->execute();
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $post) {
-                # code...
-
             ?>
                 <article class="itemWarper">
                     <div class="articleTitle">
@@ -27,10 +25,17 @@ include('module/dbTools.php');  ?>
                         <p><?php echo $post["userName"] ?></p>
                     </div>
 
-                    <p><?php echo $post["postContent"] ?></p>
+                    <p><?php 
+                        if (strlen($post["postContent"]) < 300) {
+                            echo $post["postContent"];
+                        }
+                        else {
+                            echo substr($post["postContent"],0, 300) . "...";
+                        }
+                    ?></p>
 
                     <div>
-                        <a class="articleLink">lire la suite</a>
+                        <a class="articleLink" href=<?php echo "/post.php?id=" . $post["postId"]  ?> >lire la suite</a>
                         <!-- <a class="articleLike"><object data="media/heart.svg" class="icon like" type="image/svg+xml"></object>
                             like</a> -->
                     </div>
