@@ -31,8 +31,8 @@ include('module/dbTools.php');  ?>
 
                     <div>
                         <a class="articleLink">lire la suite</a>
-                        <a class="articleLike"><object data="media/heart.svg" class="icon like" type="image/svg+xml"></object>
-                            like</a>
+                        <!-- <a class="articleLike"><object data="media/heart.svg" class="icon like" type="image/svg+xml"></object>
+                            like</a> -->
                     </div>
                 </article>
             <?php }
