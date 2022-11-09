@@ -35,7 +35,7 @@ elseif ($_GET["action"] == "addArticle" && getUserAccess() <= 2){
         header("Location: /?info=postSuccess");
     }
 }
-elseif($_GET["action"] == "changePassword"){
+elseif($_GET["action"] == "changePassword" && getUserAccess() <= 3){
     $options = array(
         "old" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
         "new" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
