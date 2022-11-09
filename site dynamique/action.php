@@ -2,7 +2,17 @@
 session_start();
 // file for all action that don't need page
 include("module/dbTools.php");
-if(! isset($_POST["action"])){
+
+if($_GET["action"] == "login"){
+    if (checkPassword($_POST["username"],$_POST["password"])){
+        header("Location: /");
+    }
+    else{
+        header("Location: /?error=login");
+    }
+}
+elseif($_GET["action"] == "logout"){
+    session_destroy();
     header("Location: /");
 }
 elseif ($_POST["action"] == "addArticle" || getUserAccess() <= 2){
@@ -26,6 +36,7 @@ elseif ($_POST["action"] == "addArticle" || getUserAccess() <= 2){
         header("Location: /?info=postSuccess");
     }
 }
+
 else {
     header("Location: /"); 
 }

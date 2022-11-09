@@ -12,7 +12,7 @@
                 <button class="navItem" href="profile">Profil</button>
                 <div>
                     <a class="dropdownItem" href="option.php">Option</a>
-                    <a class="dropdownItem" href="logout.php">Logout</a>
+                    <a class="dropdownItem" href="action.php?action=logout">Logout</a>
                 </div>
             </div>
         <?php } ?>
