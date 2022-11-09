@@ -15,8 +15,7 @@
         <section>
             <div class="itemWarper">
             <h2>changer de mot de passe</h2>
-                <form action="action.php" method="post">
-                    <input type='hidden' name='action' value='changePassword' />
+                <form action="action.php/?action=changePassword" method="post">
                     <label for="old" >mot de passe actuel</label><br/>
                     <input type="password" name="old" pattern="^.{0,255}" required><br/>
                     <label for="new" >nouveau mot de passe</label><br/>
