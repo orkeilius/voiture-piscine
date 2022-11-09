@@ -56,7 +56,26 @@ elseif($_GET["action"] == "changePassword"){
         header("Location: /option.php?info=passwordSuccess"); 
     }
 }
+elseif($_GET["action"] == "editUser" && getUserAccess() == 0){
+    $options = array(
+        "username" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+        "password" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+        "access" => FILTER_SANITIZE_NUMBER_INT,
+    );
+    $result = filter_input_array(INPUT_POST, $options);
+    if (in_array('',$result,true )){
+        header("Location: option.php?error=editUser");
+    } 
+    else{
+        $query = $db -> prepare("INSERT INTO `user`(`userName`, `userPassword`, `userAccess`) VALUES (?,?,?)");
+        $query->bindParam(1,$result["username"]);
+        $query->bindParam(2,password_hash($result["password"],PASSWORD_DEFAULT));
+        $query->bindParam(3,$result["access"]);
+        $query->execute();
+        header("Location: /option.php?info=editSuccess");
+    }
 
+}
 else {
     header("Location: /"); 
 }
