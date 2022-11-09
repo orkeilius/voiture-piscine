@@ -5,7 +5,7 @@ include("module/dbTools.php");
 if(! isset($_POST["action"])){
     header("Location: /");
 }
-elseif ($_POST["action"] == "addArticle"){
+elseif ($_POST["action"] == "addArticle" || getUserAccess() <= 2){
     $options = array(
         "title" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
         "content" => FILTER_SANITIZE_FULL_SPECIAL_CHARS
@@ -25,4 +25,7 @@ elseif ($_POST["action"] == "addArticle"){
         $result =  $query->fetch();
         header("Location: /?info=postSuccess");
     }
+}
+else {
+    header("Location: /"); 
 }
