@@ -13,7 +13,7 @@
     } else {
         include("module/header.php"); ?>
         <section>
-            <div class="itemWarper">
+            <div class="itemWarper fullWidth">
             <h2>changer de mot de passe</h2>
                 <form action="action.php/?action=changePassword" method="post">
                     <label for="old" >mot de passe actuel</label><br/>
