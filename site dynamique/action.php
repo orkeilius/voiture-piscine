@@ -15,7 +15,7 @@ elseif($_GET["action"] == "logout"){
     session_destroy();
     header("Location: /");
 }
-elseif ($_GET["action"] == "addArticle" || getUserAccess() <= 2){
+elseif ($_GET["action"] == "addArticle" && getUserAccess() <= 2){
     $options = array(
         "title" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
         "content" => FILTER_SANITIZE_FULL_SPECIAL_CHARS
