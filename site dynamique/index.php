@@ -44,12 +44,12 @@ include('module/dbTools.php');  ?>
         } else { ?>
             <div class="itemWarper">
                 <h2>log in</h2>
-                <form class="formCenter" action="login.php" method="post">
+                <form class="formCenter" action="action.php?action=login" method="post">
                     <input type="text" class="entry" id="username" name="username" placeholder="username" required><br>
                     <input type="password" class="entry" id="password" name="password" placeholder="password" required><br>
                     <input type="submit" value="se connecter">
                 </form>
-                <?php if (isset($_GET["loginError"])) { ?>
+                <?php if ($_GET["error"] == "login") { ?>
                     <div class="errorItem">
                         <p><object data="media/error.svg" class="icon like" type="image/svg+xml"></object>
                             nom / mot de passe invalide</p>

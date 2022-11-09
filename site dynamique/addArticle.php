@@ -14,8 +14,7 @@
         include("module/header.php"); ?>
         <section>
             <h2> crée un article</h2>
-                <form action="action.php" method="post">
-                    <input type='hidden' name='action' value='addArticle' />
+                <form action="action.php?action=addArticle" method="post">
                     <label for="title" >Titre:</label><br/>
                     <input type="text" name="title" placeholder="Titre" pattern="^.{0,255}" required><br/>
                     <label for="content" >article:</label><br/>
