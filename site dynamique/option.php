@@ -24,12 +24,21 @@ include('module/dbTools.php'); ?>
                     <label for="new2">nouveau mot de passe</label><br />
                     <input type="password" name="new2" pattern="^.{0,255}" required><br />
                     <input type="submit">
+                    <?php 
+                    if ($_GET["error"] == "password") { ?>
+                        <div class="errorItem">
+                            <p><object data="media/error.svg" class="icon like" type="image/svg+xml"></object>
+                                mot de passe invalide</p>
+                        </div>
+                    <?php } ?> 
+                </div>
                 </form>
             </div>
             <?php
             if (getUserAccess() == 0) { ?>
-                
+
                 <div class="itemWarper fullWidth" id="editUser">
+                    
                     <h2>editer un utilisateur</h2>
                     <form action="action.php/?action=editUser" method="post">
                         <label for="username">nom</label><br />
@@ -48,6 +57,18 @@ include('module/dbTools.php'); ?>
                         <label for="access">écraser l'utilisateur exitant</label><br />
                         <input type="submit">
                     </form>
+                    <?php if ($_GET["error"] == "editUser") { ?>
+                        <div class="errorItem">
+                            <p><object data="media/error.svg" class="icon like" type="image/svg+xml"></object>
+                                Donnés invalide</p>
+                        </div>
+                    <?php }
+                    if ($_GET["error"] == "existingUser") { ?>
+                        <div class="errorItem">
+                            <p><object data="media/error.svg" class="icon like" type="image/svg+xml"></object>
+                                L' utilisateur existe déjà</p>
+                        </div>
+                    <?php } ?> 
                 </div>
             <?php } ?>
         </section>

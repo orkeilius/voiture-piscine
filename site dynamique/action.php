@@ -38,10 +38,10 @@ if ($_GET["action"] == "login") {
     );
     $result = filter_input_array(INPUT_POST, $options);
     if (in_array('', $result, true)) {
-        header("Location: addArticle.php?error=password");
+        header("Location: /option.php?error=password");
     }
     if (!checkPassword($_SESSION["user"], $result["old"]) || $result["new"] != $result["new2"]) {
-        header("Location: addArticle.php?error=password");
+        header("Location: /option.php?error=password");
     } else {
         $query = $db->prepare("UPDATE `user` SET `userPassword`=? WHERE `userName` = ?");
         $query->bindParam(1, password_hash($result["new"], PASSWORD_DEFAULT));
@@ -83,8 +83,6 @@ if ($_GET["action"] == "login") {
     $query->bindParam(3, $result["access"]);
     $query->execute();
     header("Location: /option.php?info=editSuccess#editUser");
-
-
 } else {
     header("Location: /");
 }
