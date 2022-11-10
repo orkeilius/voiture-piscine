@@ -57,7 +57,7 @@ if ($_GET["action"] == "login") {
     );
     $result = filter_input_array(INPUT_POST, $options);
     if (in_array('', $result, true)) {
-        header("Location: option.php?error=editUser");
+        header("Location: option.php?error=editUser#editUser");
         return;
     }
 
@@ -72,7 +72,7 @@ if ($_GET["action"] == "login") {
             $query->bindParam(1, $result["username"]);
             $query->execute();
         } else {
-            header("Location: /option.php?error=existingUser");
+            header("Location: /option.php?error=existingUser#editUser");
             return;
         }
     }
@@ -82,7 +82,7 @@ if ($_GET["action"] == "login") {
     $query->bindParam(2, password_hash($result["password"], PASSWORD_DEFAULT));
     $query->bindParam(3, $result["access"]);
     $query->execute();
-    header("Location: /option.php?info=editSuccess");
+    header("Location: /option.php?info=editSuccess#editUser");
 
 
 } else {
