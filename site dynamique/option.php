@@ -41,6 +41,9 @@
                         <option value="1">modérateur</option>
                         <option value="0">administrateur</option>
                     </select><br/>
+
+                    <input type="checkbox" name="overwrite"></input> 
+                    <label for="access" >écraser l'utilisateur exitant</label><br />
                     <input type="submit">
                 </form>
             </div> 
