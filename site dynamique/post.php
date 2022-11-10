@@ -27,6 +27,9 @@
                 <p>
                     <?php echo $result["postContent"] ?>
                 </p>
+                <?php if(getUserAccess() <= 1 || $result["userName"] == $_SESSION["user"]){ ?>
+                    <a onclick="return confirm('êtes vous sur?')" href=<?php echo "/action.php?action=deletePost&post=" . $result["postId"] ?> class="articleLink">suprimmer</a>
+                <?php } ?>
             </article>
         </section>
         
