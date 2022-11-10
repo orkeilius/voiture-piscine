@@ -2,7 +2,6 @@
 session_start();
 // file for all action that don't need page
 include("module/dbTools.php");
-
 if ($_GET["action"] == "login") {
     if (checkPassword($_POST["username"], $_POST["password"])) {
         header("Location: /");
@@ -30,8 +29,7 @@ if ($_GET["action"] == "login") {
         $result =  $query->fetch();
         header("Location: /?info=postSuccess");
     }
-}
-elseif($_GET["action"] == "changePassword" && getUserAccess() <= 3){
+} elseif ($_GET["action"] == "changePassword" && getUserAccess() <= 3) {
     $options = array(
         "old" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
         "new" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
@@ -50,6 +48,26 @@ elseif($_GET["action"] == "changePassword" && getUserAccess() <= 3){
         $query->execute();
         header("Location: /option.php?info=passwordSuccess");
     }
+} elseif ($_GET["action"] == "deletePost" && isset($_GET["post"])) {
+    $argument = filter_var($_GET["post"],FILTER_VALIDATE_INT);
+
+    if ($argument == false) {
+        header("Location: /");
+        return;
+    }
+    $query = $db->prepare("SELECT userName FROM `post` WHERE `postId`=?");
+    $query->bindParam(1, $argument);
+    $query->execute();
+    $result = $query->fetch();
+    if (getUserAccess() <= 1 || $_SESSION["user"] == $result["userName"]){
+        $query = $db->prepare("DELETE FROM `post` WHERE `postId`=?");
+        $query->bindParam(1, $argument);
+        $query->execute(); 
+        header("Location: /index.php?info=deleteSuccess");
+    }
+    else{
+        header("Location: /");
+    }
 } elseif ($_GET["action"] == "editUser" && getUserAccess() == 0) {
     $options = array(
         "username" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
@@ -58,7 +76,7 @@ elseif($_GET["action"] == "changePassword" && getUserAccess() <= 3){
     );
     $result = filter_input_array(INPUT_POST, $options);
     if (in_array('', $result, true)) {
-        header("Location: option.php?error=editUser#editUser");
+        header("Location: /option.php?error=editUser#editUser");
         return;
     }
 
