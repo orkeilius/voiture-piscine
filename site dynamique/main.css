@@ -135,7 +135,7 @@ section {
     text-align: center;
 }
 
-.entry {
+input[type=text] , input[type=password] {
     border: solid black;
     border-width: 0 0 3px 0;
     border-radius: 0;
@@ -143,7 +143,7 @@ section {
     transition: all 1s;
 }
 
-.entry:valid {
+input[type=text]:valid , input[type=password]:valid {
     border-color: var(--valide-color);
 
 }
