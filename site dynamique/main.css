@@ -226,6 +226,7 @@ article{
     border-radius: 1em;
     padding: 0.25em 0.5em;
     background: var(--danger-color-background);
+    width: fit-content;
 }
 
 .errorItem>p {
