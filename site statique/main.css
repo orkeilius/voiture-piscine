@@ -16,6 +16,9 @@ a{
     --grey-color:   #CACFD6;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+h1{
+    margin-left: 0.25em;
+}
 .icon {
     height: 100%;
     aspect-ratio: 1/1;
