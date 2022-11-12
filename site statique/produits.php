@@ -12,23 +12,36 @@
         <h1>Nos produits</h1>
         <div id="productContainer">
             <article>
+                <div style="mask-image: url(img/mask/blob1.svg);" class="mask">
+                    <img src="img/voiture.jpeg">
+                </div>
                 <h2>Voiture piscine</h2>
-                <img src="img/voiture.jpeg" style="width:250px; height:150px" class="rond">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo rerum enim exercitationem quas quidem iure laudantium unde, officia fuga iusto repellendus velit quis accusantium earum praesentium qui quos quae molestias!</p>
             </article>
             <article>
+                <div style="mask-image: url(img/mask/blob2.svg);" class="mask">
+                    <img src="img/pickup.jpg">
+                </div>
                 <h2>pickup piscine</h2>
-                <img src="img/pickup.jpg" style="width:300px; height:175px" class="rond">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas doloremque sint quasi ratione vel fuga laboriosam vero necessitatibus, numquam similique nihil. Cum debitis quas, totam fuga at inventore quaerat accusamus.</p>
             </article>
             <article>
+                <div style="mask-image: url(img/mask/blob3.svg);" class="mask">
+                    <img src="img/van.jpg">
+                </div>
                 <h2>Camping-car piscine</h2>
-                <img src="img/van.jpg" style="width:230px; height:225px" class="rond">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur fuga voluptatum necessitatibus aliquid, officiis odit, optio, sit sint tempore illum ratione? Dolores reiciendis, velit sint molestias eos cum tenetur quasi!</p>
             </article>
             <article>
+                <div style="mask-image: url(img/mask/blob4.svg);" class="mask">
+                    <img src="img/camion.jpg">
+                </div>
                 <h2>Camion piscine</h2>
-                <img src="img/camion.jpg" style="width:275px; height:200px" class="rond">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum numquam ut fuga voluptatibus ad necessitatibus voluptatem dolores at, commodi officia ipsum sunt deserunt sapiente quos quas enim recusandae delectus fugit.</p>
             </article>
         </div>
     </section>
     <?php include("module/footer.php") ?>
 </body>
+
 </html>
