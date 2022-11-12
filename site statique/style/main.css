@@ -13,9 +13,6 @@ body{
 section{
     flex-grow: 10;
 }
-a{
-    text-decoration: none;
-}
 #pos{
     display: flex;
     justify-content: space-between;
