@@ -16,25 +16,34 @@ a{
     --grey-color:   #CACFD6;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+h1{
+    margin-left: 0.25em;
+}
+.icon {
+    height: 100%;
+    aspect-ratio: 1/1;
+}
+
 nav {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     background-color: var(--accent-color);
 }
 
 nav>a {
     color: white;
-    padding: 1em;
+    padding: 0.5em 1em;
     transition: all 1s;
 }
 
 nav>a:hover {
     background-color: var(--hover-color);
 }
+nav > a:first-child{
+    padding: 0.5em;
+    height: 1.5em;
 
-.rond{
-    border: 1px solid white;
-    border-radius: 50px;
 }
 #pos{
     display: flex;
