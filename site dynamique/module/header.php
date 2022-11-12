@@ -7,7 +7,6 @@
             if (getUserAccess() <= 2) { ?>
                 <a class="navItem" href="addArticle.php"> + ajouter un article</a>
             <?php } ?>
-            <div style="flex-basis:1;flex-grow:100"></div>
             <div class="dropdown">
                 <button class="navItem" href="profile">Profil</button>
                 <div>
