@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <?php include("module/head.php") ?>
-    </head>
-    <body>
-        <?php include("module/header.php") ?>
-        <section>
-            <h2>Produits</h2>
-            <p>Comme produit nous proposons : </p>
-            <div id="pos">
-                <div>La voiture piscine</div><div> Le pickup piscine </div><div>Le van piscine </div><div>Le camion piscine (A livrer)</div>
-            </div>
-            <div id="pos">
-                <div><img src="img/voiture.jpeg" style="width:250px; height:150px" class="rond"></div><div><img src="img/pickup.jpg" style="width:300px; height:175px" class="rond"></div><div><img src="img/van.jpg" style="width:230px; height:225px" class="rond"></div><div><img src="img/camion.jpg" style="width:275px; height:200px" class="rond"></div>
-            </div>
-        </section>
-        <?php include("module/footer.php") ?>
-    </body>
+
+<head>
+    <?php include("module/head.php") ?>
+    <link rel="stylesheet" href="style/product.css">
+</head>
+
+<body>
+    <?php include("module/header.php") ?>
+    <section>
+        <h1>Nos produits</h1>
+        <div id="productContainer">
+            <article>
+                <h2>Voiture piscine</h2>
+                <img src="img/voiture.jpeg" style="width:250px; height:150px" class="rond">
+            </article>
+            <article>
+                <h2>pickup piscine</h2>
+                <img src="img/pickup.jpg" style="width:300px; height:175px" class="rond">
+            </article>
+            <article>
+                <h2>Camping-car piscine</h2>
+                <img src="img/van.jpg" style="width:230px; height:225px" class="rond">
+            </article>
+            <article>
+                <h2>Camion piscine</h2>
+                <img src="img/camion.jpg" style="width:275px; height:200px" class="rond">
+            </article>
+        </div>
+    </section>
+    <?php include("module/footer.php") ?>
+</body>
 </html>
