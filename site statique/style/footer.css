@@ -1,0 +1,29 @@
+footer{
+    background-color: var(--grey-color);
+}
+.footerSection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.footerArticle{
+    margin: 1em;
+}
+.footerArticle > h3{
+    margin: 0.5em;
+}
+.footerArticle > ul{
+    padding: 0 1em;
+    margin: 0.5em;
+    list-style-type: none;
+}
+.footerArticle a{
+    text-decoration: none;
+    color: black;
+}
+.footerArticle a:hover{
+    text-decoration: underline;
+}
+footer > p{
+    text-align: center;
+}
