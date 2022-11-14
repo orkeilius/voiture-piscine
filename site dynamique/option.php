@@ -18,11 +18,11 @@ include('module/dbTools.php'); ?>
                 <h2>changer de mot de passe</h2>
                 <form action="action.php/?action=changePassword" method="post">
                     <label for="old">mot de passe actuel</label><br />
-                    <input type="password" name="old" pattern="^.{0,255}" required><br />
+                    <input type="password" name="old" required><br />
                     <label for="new">nouveau mot de passe</label><br />
-                    <input type="password" name="new" pattern="^.{0,255}" required><br />
+                    <input type="password" name="new" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})" required><br />
                     <label for="new2">nouveau mot de passe</label><br />
-                    <input type="password" name="new2" pattern="^.{0,255}" required><br />
+                    <input type="password" name="new2" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})" required><br />
                     <input type="submit">
                     <?php 
                     if ($_GET["error"] == "password") { ?>
@@ -44,7 +44,7 @@ include('module/dbTools.php'); ?>
                         <label for="username">nom</label><br />
                         <input type="text" name="username" pattern="^.{0,255}" required><br />
                         <label for="password">mot de passe</label><br />
-                        <input type="password" name="password" pattern="^.{0,255}" required><br />
+                        <input type="password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$" required><br />
                         <label for="access">role :</label>
                         <select name="access">
                             <option value="3">utilisateur</option>
