@@ -21,3 +21,12 @@ section{
     display: flex;
     justify-content: space-between;
 }
+.mask{
+    height: fit-content;
+    mask-size: contain;
+}
+.mask > img{
+    aspect-ratio: 4/3;
+    width: 100%;
+    overflow: hidden;
+}
