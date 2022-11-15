@@ -9,6 +9,15 @@ section>h1 {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+.mask{
+    height: fit-content;
+    overflow:hidden;
+    mask-size: contain;
+}
+.mask > img{
+    aspect-ratio: 4/3;
+    width: 100%;
+}
 article {
     display: flex;
     flex-flow: column wrap;
