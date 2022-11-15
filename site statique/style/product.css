@@ -22,6 +22,7 @@ article {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    justify-content: space-between;
     padding: 0 2em 2em;
     border-radius: 3em;
     min-width: 300px;
