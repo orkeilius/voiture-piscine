@@ -18,7 +18,7 @@
                     Si vous avez plus de question, n'hésitez pas ! </br>
                 </p>
             </div>
-            <div style="mask-image: url(img/mask/blob4.svg);" class="mask">
+            <div style="mask-image: url(img/mask/blob4.svg);-webkit-mask-image:url(img/mask/blob4.svg)" class="mask">
                 <img src="img/modif.jpg">
             </div>
         </article>

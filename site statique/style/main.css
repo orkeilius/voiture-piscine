@@ -24,6 +24,7 @@ section{
 .mask{
     height: fit-content;
     mask-size: contain;
+    -webkit-mask-size: contain;
 }
 .mask > img{
     aspect-ratio: 4/3;

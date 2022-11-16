@@ -17,12 +17,12 @@
                     Vous pouvez retrouver ici nos produits, une présentation approfondie et nous contacter
                 </p>
             </div>
-            <div style="mask-image: url(img/mask/blob4.svg);" class="mask">
+            <div style="mask-image: url(img/mask/blob3.svg);-webkit-mask-image:url(img/mask/blob3.svg)" class="mask">
                 <img src="img/voiture.jpeg">
             </div> 
         </article>
         <article>
-            <div style="mask-image: url(img/mask/blob4.svg);" class="mask">
+            <div style="mask-image: url(img/mask/blob2.svg);-webkit-mask-image:url(img/mask/blob2.svg)" class="mask">
                 <img src="img/voiture.jpeg">
             </div> 
             <div>
