@@ -20,7 +20,7 @@
                     Produit phare de notre gamme et la plus abouti, ce modèle est inspiré des voitures américaines cabriolet des années 70.
                     Cette voiture est équipée d’une piscine chauffante, bouillonnante et massant. Parfaite pour l’été, elle dispose de 5 places.
                     Garée au bord d’une plage ou en mouvement sur les routes de campagnes, vous pourrez profiter de la piscine.
-                    Grâce à l’innovation Goutteless, l’eau de la piscine ne s’échappe pas de la voiture dans toutes les situations.
+                    Grâce à l’innovation Goutteless®, l’eau de la piscine ne s’échappe pas de la voiture dans toutes les situations.
                 </p>
             </article>
             <article>

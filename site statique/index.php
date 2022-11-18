@@ -21,7 +21,7 @@
                 <img src="img/voiture.jpeg">
             </div>
         </article>
-        <article>
+        <!-- <article>
             <div style="mask-image: url(img/mask/blob4.svg);" class="mask">
                 <img src="img/voiture.jpeg">
             </div>
@@ -31,7 +31,7 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam repellat, maxime, repudiandae blanditiis quas pariatur corrupti incidunt quaerat sunt sapiente quasi explicabo dignissimos inventore expedita ut corporis consequatur voluptatibus earum.
                 </p>
             </div>
-        </article>
+        </article> -->
     </section>
     <?php include("module/footer.php") ?>
 </body>
