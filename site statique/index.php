@@ -13,18 +13,18 @@
             <div>
                 <h2>Présentation</h2>
                 <p>
-                    Bienvenue sur nôtre site internet ! <br>
-                    Vous pouvez retrouver ici nos produits, une présentation approfondie et nous contacter
+                    Bienvenue sur le site intranet de voiture-piscine ! <br>
+                    Sur ce site vitrine, vous retrouverez tous nos produits en détails et toutes les informations liées à notre entreprise avec nos informations de contact.
                 </p>
             </div>
             <div style="mask-image: url(img/mask/blob4.svg);" class="mask">
                 <img src="img/voiture.jpeg">
-            </div> 
+            </div>
         </article>
         <article>
             <div style="mask-image: url(img/mask/blob4.svg);" class="mask">
                 <img src="img/voiture.jpeg">
-            </div> 
+            </div>
             <div>
                 <h2>2</h2>
                 <p>
