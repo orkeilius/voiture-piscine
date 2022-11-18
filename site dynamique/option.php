@@ -21,7 +21,7 @@ include("module/checkPassword.php") ?>
                     <label for="old">mot de passe actuel</label><br />
                     <input type="password" name="old" required><br />
                     <label for="new">nouveau mot de passe</label><br />
-                    <input id="entry1" type="password" name="new" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})" required><br />
+                    <input id="entry1" type="password" name="new" required><br />
                     <?php echo passwordChecker('entry1') ?>
                     <label for="new2">nouveau mot de passe</label><br />
                     <input type="password" name="new2" required><br />

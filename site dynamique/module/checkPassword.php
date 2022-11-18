@@ -1,6 +1,6 @@
 <script>
     function checkPassword(e) {
-
+        valid = true
         ul = document.getElementById(e.target.id + "_ul");
         container = document.getElementById(e.target.id + "_container");
 
