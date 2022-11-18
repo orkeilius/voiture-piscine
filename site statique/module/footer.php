@@ -9,7 +9,7 @@
             </ul>
         </div>
         <div class="footerArticle">
-            <h3>Nous contacter</h3>
+            <h3>Nos réseaux</h3>
             <ul>
                 <li><a href="https://twitter.com/?lang=fr">Twitter</a></li>
                 <li><a href="https://www.instagram.com/?hl=fr">Instagram</a></li>

@@ -16,28 +16,48 @@
                     <img src="img/voiture.jpeg">
                 </div>
                 <h2>Voiture piscine</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo rerum enim exercitationem quas quidem iure laudantium unde, officia fuga iusto repellendus velit quis accusantium earum praesentium qui quos quae molestias!</p>
+                <p>
+                    Produit phare de notre gamme et la plus abouti, ce modèle est inspiré des voitures américaines cabriolet des années 70.
+                    Cette voiture est équipée d’une piscine chauffante, bouillonnante et massant. Parfaite pour l’été, elle dispose de 5 places.
+                    Garée au bord d’une plage ou en mouvement sur les routes de campagnes, vous pourrez profiter de la piscine.
+                    Grâce à l’innovation Goutteless®, l’eau de la piscine ne s’échappe pas de la voiture dans toutes les situations.
+                </p>
             </article>
             <article>
                 <div style="mask-image: url(img/mask/blob2.svg);-webkit-mask-image:url(img/mask/blob2.svg)" class="mask">
                     <img src="img/pickup.jpg">
                 </div>
                 <h2>pickup piscine</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas doloremque sint quasi ratione vel fuga laboriosam vero necessitatibus, numquam similique nihil. Cum debitis quas, totam fuga at inventore quaerat accusamus.</p>
+                <p>
+                    Produit d’appel de notre marque, c’est aussi le plus vendu.
+                    N’avez-vous jamais rêver de transformer la benne de votre pick-up en piscine ? Voiture-piscine l’a fait ! Installation en 5 minutes, le kit de montage permet d’adapter la taille de la piscine en fonction de la taille de la benne de votre pick-up.
+                    <br />
+                    Plusieurs coloris disponibles
+                </p>
             </article>
             <article>
                 <div style="mask-image: url(img/mask/blob3.svg);-webkit-mask-image:url(img/mask/blob3.svg)" class="mask">
                     <img src="img/van.jpg">
                 </div>
                 <h2>Camping-car piscine</h2>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur fuga voluptatum necessitatibus aliquid, officiis odit, optio, sit sint tempore illum ratione? Dolores reiciendis, velit sint molestias eos cum tenetur quasi!</p>
+                <p>
+                    Parfait pour les séjours au camping ! <br />
+                    Vous en avez marre de payer des camping 4 étoiles pour que vos enfants profitent de la piscine ? Investissez plutôt dans la caravane piscine.
+                    Disponible en 4 mètres et 6 mètres, la caravane piscine est l’indispensable des vacances.
+                    <br />
+                    En option : piscine chauffante, toboggan et échelle de bain
+                </p>
             </article>
             <article>
                 <div style="mask-image: url(img/mask/blob4.svg);-webkit-mask-image:url(img/mask/blob4.svg)" class="mask">
                     <img src="img/camion.jpg">
                 </div>
                 <h2>Camion piscine</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum numquam ut fuga voluptatibus ad necessitatibus voluptatem dolores at, commodi officia ipsum sunt deserunt sapiente quos quas enim recusandae delectus fugit.</p>
+                <p>
+                    La Pool-party réinventé ! <br />
+                    Disponible à la location seulement, le camion piscine permet d’organiser des soirées rafraîchissantes n’importe où.
+                    D’une profondeur de 5 mètres, sa remorque contient une échelle de bain, une plage immergée et des enceintes intégrées
+                </p>
             </article>
         </div>
     </section>
