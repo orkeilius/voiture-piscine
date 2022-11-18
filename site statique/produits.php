@@ -27,7 +27,7 @@
                 <div style="mask-image: url(img/mask/blob2.svg);-webkit-mask-image:url(img/mask/blob2.svg)" class="mask">
                     <img src="img/pickup.jpg">
                 </div>
-                <h2>pickup piscine</h2>
+                <h2>Pickup piscine</h2>
                 <p>
                     Produit d’appel de notre marque, c’est aussi le plus vendu.
                     N’avez-vous jamais rêver de transformer la benne de votre pick-up en piscine ? Voiture-piscine l’a fait ! Installation en 5 minutes, le kit de montage permet d’adapter la taille de la piscine en fonction de la taille de la benne de votre pick-up.
