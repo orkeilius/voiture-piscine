@@ -27,6 +27,13 @@ include("module/checkPassword.php") ?>
                     <input type="password" name="new2" required><br />
                     <input type="submit">
                     <?php
+                    if ($_GET["error"] == "badPassword") { ?>
+                        <div class="errorItem">
+                            <p><object data="media/error.svg" class="icon like" type="image/svg+xml"></object>
+                                mot de passe faible</p>
+                        </div>
+                    <?php } ?>
+                    <?php
                     if ($_GET["error"] == "password") { ?>
                         <div class="errorItem">
                             <p><object data="media/error.svg" class="icon like" type="image/svg+xml"></object>
