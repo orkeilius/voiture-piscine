@@ -1,5 +1,6 @@
 <?php session_start();
-include('module/dbTools.php'); ?>
+include('module/dbTools.php');
+include("module/checkPassword.php") ?>
 <!DOCTYPE html>
 <html>
 
@@ -18,33 +19,42 @@ include('module/dbTools.php'); ?>
                 <h2>changer de mot de passe</h2>
                 <form action="action.php/?action=changePassword" method="post">
                     <label for="old">mot de passe actuel</label><br />
-                    <input type="password" name="old" pattern="^.{0,255}" required><br />
+                    <input type="password" name="old" required><br />
                     <label for="new">nouveau mot de passe</label><br />
-                    <input type="password" name="new" pattern="^.{0,255}" required><br />
+                    <input id="entry1" type="password" name="new" required><br />
+                    <?php echo passwordChecker('entry1') ?>
                     <label for="new2">nouveau mot de passe</label><br />
-                    <input type="password" name="new2" pattern="^.{0,255}" required><br />
+                    <input type="password" name="new2" required><br />
                     <input type="submit">
-                    <?php 
+                    <?php
+                    if ($_GET["error"] == "badPassword") { ?>
+                        <div class="errorItem">
+                            <p><object data="media/error.svg" class="icon like" type="image/svg+xml"></object>
+                                mot de passe faible</p>
+                        </div>
+                    <?php } ?>
+                    <?php
                     if ($_GET["error"] == "password") { ?>
                         <div class="errorItem">
                             <p><object data="media/error.svg" class="icon like" type="image/svg+xml"></object>
                                 mot de passe invalide</p>
                         </div>
-                    <?php } ?> 
-                </div>
-                </form>
+                    <?php } ?>
+            </div>
+            </form>
             </div>
             <?php
             if (getUserAccess() == 0) { ?>
 
                 <div class="itemWarper fullWidth" id="editUser">
-                    
+
                     <h2>editer un utilisateur</h2>
                     <form action="action.php/?action=editUser" method="post">
                         <label for="username">nom</label><br />
                         <input type="text" name="username" pattern="^.{0,255}" required><br />
                         <label for="password">mot de passe</label><br />
-                        <input type="password" name="password" pattern="^.{0,255}" required><br />
+                        <input id="entry2" type="password" name="password" required><br />
+                        <?php echo passwordChecker('entry2') ?>
                         <label for="access">role :</label>
                         <select name="access">
                             <option value="3">utilisateur</option>
@@ -68,7 +78,7 @@ include('module/dbTools.php'); ?>
                             <p><object data="media/error.svg" class="icon like" type="image/svg+xml"></object>
                                 L' utilisateur existe déjà</p>
                         </div>
-                    <?php } ?> 
+                    <?php } ?>
                 </div>
             <?php } ?>
         </section>
