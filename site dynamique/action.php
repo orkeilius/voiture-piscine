@@ -11,24 +11,46 @@ if ($_GET["action"] == "login") {
 } elseif ($_GET["action"] == "logout") {
     session_destroy();
     header("Location: /");
+
 } elseif ($_GET["action"] == "addArticle" && getUserAccess() <= 2) {
     $options = array(
         "title" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
         "content" => FILTER_SANITIZE_FULL_SPECIAL_CHARS
     );
+
     $result = filter_input_array(INPUT_POST, $options);
     if (in_array('', $result, true)) {
         header("Location: addArticle.php?error=option");
-    } else {
-        $query = $db->prepare("INSERT INTO `post`(`postId`, `postTitle`, `postContent`, `postTime`, `postPinned`, `userName`) VALUES (NULL,?,?,?,0, ? );");
-        $query->bindParam(1, $result["title"]);
-        $query->bindParam(2, $result["content"]);
-        $query->bindParam(3, time());
-        $query->bindParam(4, $_SESSION["user"]);
-        $query->execute();
-        $result =  $query->fetch();
-        header("Location: /?info=postSuccess");
+        return;
     }
+
+    //get next postId
+    $query = $db->prepare("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'post' AND table_schema = DATABASE( ) ;");
+    $query->execute();
+    $postId =  $query->fetch()[0];
+
+    //var_dump($_FILES);
+    foreach ($_FILES as $k => $file) {
+        var_dump($file);
+        var_dump($file["name"]);
+        if(($file["size"] <= 400000000) && ($file["error"] == 0)){ //50mo
+            mkdir("postMedia/".$postId,0666,True);
+            $fileLocation = "postMedia/".$postId."/".basename($file["name"]);
+            move_uploaded_file($file["tmp_name"],$fileLocation);
+        }
+    }
+    
+
+    $time = time();
+    $query = $db->prepare("INSERT INTO `post`(`postId`, `postTitle`, `postContent`, `postTime`, `postPinned`, `userName`) VALUES (NULL,?,?,?,0, ? );");
+    $query->bindParam(1, $result["title"]);
+    $query->bindParam(2, $result["content"]);
+    $query->bindParam(3, $time);
+    $query->bindParam(4, $_SESSION["user"]);
+    $query->execute();
+    $result =  $query->fetch();
+    header("Location: /?info=postSuccess");
+    
 } elseif ($_GET["action"] == "changePassword" && getUserAccess() <= 3) {
     $options = array(
         "old" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
