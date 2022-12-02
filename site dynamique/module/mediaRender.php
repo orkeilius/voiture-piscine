@@ -14,6 +14,7 @@ function renderImage($postId)
     if ($imageList != []) {
 ?>
         <div class="slider-wrapper">
+            <?php if(sizeof($imageList) > 1){?>
             <button class="slide-arrow" id="slide-arrow-prev">
                 <p class="slide-arrow-text">&#8249;</p>
             </button>
@@ -21,6 +22,7 @@ function renderImage($postId)
                 <p class="slide-arrow-text">&#8250;</p>
 
             </button>
+            <?php } ?>
             <ul class="slides-container" id="slides-container">
                 <?php foreach ($imageList as $file) {
                     echo '<li class="slide"><img src="' . $file . '"></img></li>';
