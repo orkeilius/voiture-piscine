@@ -1,4 +1,4 @@
-<?php session_start(); include('module/dbTools.php'); ?>
+<?php session_start(); include('module/dbTools.php'); include('module/mediaRender.php') ?>
 <!DOCTYPE html>
 <html>
 
@@ -27,9 +27,13 @@
                 <p>
                     <?php echo $result["postContent"] ?>
                 </p>
-                <?php if(getUserAccess() <= 1 || $result["userName"] == $_SESSION["user"]){ ?>
+                <?php 
+                renderVideo($id);
+                renderImage($id);
+                if(getUserAccess() <= 1 || $result["userName"] == $_SESSION["user"]){ ?>
                     <a onclick="return confirm('êtes vous sur?')" href=<?php echo "/action.php?action=deletePost&post=" . $result["postId"] ?> class="articleLink">suprimmer</a>
                 <?php } ?>
+
             </article>
         </section>
         
