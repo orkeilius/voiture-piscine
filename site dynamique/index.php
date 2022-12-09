@@ -1,5 +1,6 @@
 <?php session_start();
-include('module/dbTools.php');  ?>
+include('module/dbTools.php');
+include('module/mediaRender.php')  ?>
 <!DOCTYPE html>
 <html>
 
@@ -32,8 +33,9 @@ include('module/dbTools.php');  ?>
                         else {
                             echo substr($post["postContent"],0, 300) . "...";
                         }
-                    ?></p>
+                        ?></p>
 
+                    <?php mediaRender($post["postId"]); ?>
                     <div>
                         <a class="articleLink" href=<?php echo "/post.php?id=" . $post["postId"]  ?> >lire la suite</a>
                         <!-- <a class="articleLike"><object data="media/heart.svg" class="icon like" type="image/svg+xml"></object>

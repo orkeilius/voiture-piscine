@@ -1,27 +1,18 @@
 <?php
 function renderImage($postId)
 {
-    $dirName = "postMedia/" . $postId . "/";
-    if (!is_dir($dirName)) {
-        return 0;
-    }
-    $imageList = array();
-    foreach (scandir($dirName) as $file) {
-        if (str_starts_with(mime_content_type($dirName . $file), "image")) {
-            array_push($imageList, $dirName . $file);
-        }
-    }
+    $imageList = queryFile($postId, "image");
     if ($imageList != []) {
 ?>
         <div class="slider-wrapper">
-            <?php if(sizeof($imageList) > 1){?>
-            <button class="slide-arrow" id="slide-arrow-prev">
-                <p class="slide-arrow-text">&#8249;</p>
-            </button>
-            <button class="slide-arrow" id="slide-arrow-next">
-                <p class="slide-arrow-text">&#8250;</p>
+            <?php if (sizeof($imageList) > 1) { ?>
+                <button class="slide-arrow" id="slide-arrow-prev">
+                    <p class="slide-arrow-text">&#8249;</p>
+                </button>
+                <button class="slide-arrow" id="slide-arrow-next">
+                    <p class="slide-arrow-text">&#8250;</p>
 
-            </button>
+                </button>
             <?php } ?>
             <ul class="slides-container" id="slides-container">
                 <?php foreach ($imageList as $file) {
@@ -46,8 +37,49 @@ function renderImage($postId)
                 slidesContainer.scrollLeft -= slideWidth;
             });
         </script>
-
-<?php
+    <?php
     }
 }
 
+function renderVideo($postId, $singleVideo = false)
+{
+    $videoList = queryFile($postId, "video");
+    if ($videoList == []) {
+        return 0;
+    }
+    foreach ($videoList as  $video) { ?>
+        <video controls>
+            <source src="<?php echo $video ?>" type="<?php echo mime_content_type($video) ?>">
+        </video>
+<?php
+        if ($singleVideo) {
+            break;
+        }
+    }
+    return 1;
+}
+
+function queryFile($postId, $type)
+{
+    $dirName = "postMedia/" . $postId . "/";
+    if (!is_dir($dirName)) {
+        return 0;
+    }
+    $fileList = array();
+    foreach (scandir($dirName) as $file) {
+        if (str_starts_with(mime_content_type($dirName . $file), $type)) {
+            array_push($fileList, $dirName . $file);
+        }
+    }
+    return $fileList;
+}
+
+
+function mediaRender($postId)
+{
+    //render only one carousel/video for homepage
+    $result = renderVideo($postId, True);
+    if (!$result) {
+        renderImage($postId);
+    }
+}

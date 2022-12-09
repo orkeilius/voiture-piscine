@@ -309,5 +309,8 @@ article{
   .slide > img{
     width: 100%;
   } 
+  video {
+    width: 100%;
+  }
   
   
