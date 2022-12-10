@@ -39,7 +39,8 @@ if ($_GET["action"] == "login") {
             move_uploaded_file($file["tmp_name"],$fileLocation);
         }
     }
-    
+    var_dump($result["content"]);
+    $result["content"] = str_replace(array("\r\n"),"</br>",$result["content"]);
 
     $time = time();
     $query = $db->prepare("INSERT INTO `post`(`postId`, `postTitle`, `postContent`, `postTime`, `postPinned`, `userName`) VALUES (NULL,?,?,?,0, ? );");
