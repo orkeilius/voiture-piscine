@@ -18,7 +18,7 @@ include('module/mediaRender.php')  ?>
             $query = $db->prepare("SELECT * FROM `post` ");
             $query->execute();
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($result as $post) {
+            foreach (array_reverse($result) as $post) {
             ?>
                 <article class="itemWarper">
                     <div class="articleTitle">
