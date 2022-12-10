@@ -11,7 +11,6 @@ if ($_GET["action"] == "login") {
 } elseif ($_GET["action"] == "logout") {
     session_destroy();
     header("Location: /");
-
 } elseif ($_GET["action"] == "addArticle" && getUserAccess() <= 2) {
     $options = array(
         "title" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
@@ -33,13 +32,27 @@ if ($_GET["action"] == "login") {
     foreach ($_FILES as $k => $file) {
         var_dump($file);
         var_dump($file["name"]);
-        if(($file["size"] <= 400000000) && ($file["error"] == 0)){ //50mo
-            mkdir("postMedia/".$postId,0666,True);
-            $fileLocation = "postMedia/".$postId."/".basename($file["name"]);
-            move_uploaded_file($file["tmp_name"],$fileLocation);
+        if (($file["size"] <= 400000000) && ($file["error"] == 0)) { //50mo
+            mkdir("postMedia/" . $postId, 0666, True);
+            $fileLocation = "postMedia/" . $postId . "/" . basename($file["name"]);
+            move_uploaded_file($file["tmp_name"], $fileLocation);
         }
     }
-    
+
+    // replace link to <a>
+    $link_pattern = '/https?:\/\/[www\.]?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b[-a-zA-Z0-9()@:%_\+.~#?&\/=]*/m';
+    preg_match(
+        $link_pattern,
+        $result["content"],
+        $links
+    );
+    var_dump($links);
+    foreach ($links as $link) {
+        $result["content"] = str_replace($link, "<a class=\"userLink\" href=\"$link\">$link</a>", $result["content"]);
+    }
+
+    // replace line break by <br>
+    $result["content"] = str_replace(array("\r\n"), "</br>", $result["content"]);
 
     $time = time();
     $query = $db->prepare("INSERT INTO `post`(`postId`, `postTitle`, `postContent`, `postTime`, `postPinned`, `userName`) VALUES (NULL,?,?,?,0, ? );");
@@ -50,7 +63,6 @@ if ($_GET["action"] == "login") {
     $query->execute();
     $result =  $query->fetch();
     header("Location: /?info=postSuccess");
-    
 } elseif ($_GET["action"] == "changePassword" && getUserAccess() <= 3) {
     $options = array(
         "old" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
@@ -76,13 +88,13 @@ if ($_GET["action"] == "login") {
         header("Location: /option.php?info=passwordSuccess");
     }
 } elseif ($_GET["action"] == "deletePost" && isset($_GET["post"])) {
-    $argument = filter_var($_GET["post"],FILTER_VALIDATE_INT);
+    $argument = filter_var($_GET["post"], FILTER_VALIDATE_INT);
 
     if ($argument == false) {
         header("Location: /");
         return;
     }
-    $files = glob("postMedia/".$argument."/" . '*', GLOB_MARK);
+    $files = glob("postMedia/" . $argument . "/" . '*', GLOB_MARK);
     foreach ($files as $file) {
         if (is_dir($file)) {
             self::deleteDir($file);
@@ -90,19 +102,18 @@ if ($_GET["action"] == "login") {
             unlink($file);
         }
     }
-    rmdir("postMedia/".$argument);
+    rmdir("postMedia/" . $argument);
 
     $query = $db->prepare("SELECT userName FROM `post` WHERE `postId`=?");
     $query->bindParam(1, $argument);
     $query->execute();
     $result = $query->fetch();
-    if (getUserAccess() <= 1 || $_SESSION["user"] == $result["userName"]){
+    if (getUserAccess() <= 1 || $_SESSION["user"] == $result["userName"]) {
         $query = $db->prepare("DELETE FROM `post` WHERE `postId`=?");
         $query->bindParam(1, $argument);
-        $query->execute(); 
+        $query->execute();
         header("Location: /index.php?info=deleteSuccess");
-    }
-    else{
+    } else {
         header("Location: /");
     }
 } elseif ($_GET["action"] == "editUser" && getUserAccess() == 0) {
