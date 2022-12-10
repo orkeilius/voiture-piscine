@@ -63,7 +63,7 @@ function queryFile($postId, $type)
 {
     $dirName = "postMedia/" . $postId . "/";
     if (!is_dir($dirName)) {
-        return 0;
+        return [];
     }
     $fileList = array();
     foreach (scandir($dirName) as $file) {
