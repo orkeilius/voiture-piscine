@@ -61,7 +61,9 @@ if ($_GET["action"] == "login") {
     if (in_array('', $result, true)) {
         header("Location: /option.php?error=password");
     }
-    if (!preg_match(`^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$`,$result["new"])) {
+    $passwordPattern = '/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])(?=\S*[\W|_])\S*$/m';
+    if (!preg_match($passwordPattern,$result["new"])) {
+        var_dump(!preg_match($passwordPattern,$result["new"]));
         header("Location: /option.php?error=badPassword"); 
     }
     else if (!checkPassword($_SESSION["user"], $result["old"]) || $result["new"] != $result["new2"]) {
