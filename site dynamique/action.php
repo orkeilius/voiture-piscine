@@ -48,7 +48,7 @@ if ($_GET["action"] == "login") {
     );
     var_dump($links);
     foreach ($links as $link) {
-        $result["content"] = str_replace($link, "<a href=\"$link\">$link</a>", $result["content"]);
+        $result["content"] = str_replace($link, "<a class=\"userLink\" href=\"$link\">$link</a>", $result["content"]);
     }
 
     // replace line break by <br>
@@ -62,7 +62,7 @@ if ($_GET["action"] == "login") {
     $query->bindParam(4, $_SESSION["user"]);
     $query->execute();
     $result =  $query->fetch();
-    //header("Location: /?info=postSuccess");
+    header("Location: /?info=postSuccess");
 } elseif ($_GET["action"] == "changePassword" && getUserAccess() <= 3) {
     $options = array(
         "old" => FILTER_SANITIZE_FULL_SPECIAL_CHARS,

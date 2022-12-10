@@ -19,6 +19,10 @@ a {
     text-decoration: none;
     color: black;
 }
+.userLink{
+    text-decoration: underline;
+    color: blue;
+}
 footer{
     text-align: center;
     font-size: smaller;
