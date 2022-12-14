@@ -1,6 +1,12 @@
 <?php
 session_start();
 // file for all action that don't need page
+$ALLOWED_UPLOAD = array(
+    "apng", "avif", "png", "jpg", "jpeg", "jfif", "pjpeg", "pjp", "gif", "svg", "webp", "bmp",  // image format
+    "webm", "mkv", "flv", "vob", "ogv", "ogg", "rrc", "gifv", "mng", "mov", "avi", "qt", "wmv", // video format 
+    "yuv", "rm", "asf", "amv", "mp4", "m4p", "m4v", "mpg", "mp2", "mpeg", "mpe", "mpv", "m4v", 
+    "svi", "3gp", "3g2", "mxf", "roq", "nsv", "flv", "f4v", "f4p", "f4a", "f4b", "mod"
+);
 include("module/dbTools.php");
 if ($_GET["action"] == "login") {
     if (checkPassword($_POST["username"], $_POST["password"])) {
@@ -30,11 +36,12 @@ if ($_GET["action"] == "login") {
 
     //var_dump($_FILES);
     foreach ($_FILES as $k => $file) {
-        var_dump($file);
-        var_dump($file["name"]);
-        if (($file["size"] <= 400000000) && ($file["error"] == 0)) { //50mo
+        
+        $ext = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
+
+        if (($file["size"] <= 400000000) && ($file["error"] == 0) && in_array($ext, $ALLOWED_UPLOAD)) { //50mo
             mkdir("postMedia/" . $postId, 0666, True);
-            $fileLocation = "postMedia/" . $postId . "/" . basename($file["name"]);
+            $fileLocation = "postMedia/" . $postId . "/" . round(microtime(true)).mt_rand() . "." . $ext;
             move_uploaded_file($file["tmp_name"], $fileLocation);
         }
     }
@@ -74,11 +81,10 @@ if ($_GET["action"] == "login") {
         header("Location: /option.php?error=password");
     }
     $passwordPattern = '/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])(?=\S*[\W|_])\S*$/m';
-    if (!preg_match($passwordPattern,$result["new"])) {
-        var_dump(!preg_match($passwordPattern,$result["new"]));
-        header("Location: /option.php?error=badPassword"); 
-    }
-    else if (!checkPassword($_SESSION["user"], $result["old"]) || $result["new"] != $result["new2"]) {
+    if (!preg_match($passwordPattern, $result["new"])) {
+        var_dump(!preg_match($passwordPattern, $result["new"]));
+        header("Location: /option.php?error=badPassword");
+    } else if (!checkPassword($_SESSION["user"], $result["old"]) || $result["new"] != $result["new2"]) {
         header("Location: /option.php?error=password");
     } else {
         $query = $db->prepare("UPDATE `user` SET `userPassword`=? WHERE `userName` = ?");
