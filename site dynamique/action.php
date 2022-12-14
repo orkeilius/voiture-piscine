@@ -24,7 +24,7 @@ if ($_GET["action"] == "login") {
     );
 
     $result = filter_input_array(INPUT_POST, $options);
-    if (in_array('', $result, true)) {
+    if ($options['title'] == '') {
         header("Location: addArticle.php?error=option");
         return;
     }

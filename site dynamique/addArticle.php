@@ -19,7 +19,7 @@ include('module/dbTools.php'); ?>
                 <label for="title">Titre:</label><br />
                 <input type="text" name="title" placeholder="Titre" pattern="^.{0,255}" required><br />
                 <label for="content">article:</label><br />
-                <textarea name="content" placeholder="article&#10;note: les lien doivent commencer par http pour être reconnues" required></textarea><br /><br />
+                <textarea name="content" placeholder="article&#10;note: les lien doivent commencer par http pour être reconnues" ></textarea><br /><br />
 
                 <!-- file input inserted here-->
 
